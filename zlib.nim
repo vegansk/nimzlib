@@ -6,7 +6,8 @@ template pwd: string =
 
 const
   ZlibVer = "1.2.8"
-  ZlibDir = pwd / "private" / "zlib-" & ZlibVer
+  ZlibRelDir = "private" / "zlib-" & ZlibVer
+  ZlibDir = pwd / ZlibRelDir
   ZlibSrc = ["adler32.c",
              "compress.c",
              "crc32.c",
@@ -22,7 +23,7 @@ const
              "trees.c",
              "uncompr.c",
              "zutil.c"
-             ].mapIt(string, ZlibDir / it)
+             ].mapIt(string, ZlibRelDir / it)
   ZlibHeader = ZlibDir / "zlib.h"
 
 macro cc(f: string): stmt =
