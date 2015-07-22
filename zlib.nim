@@ -338,6 +338,3 @@ proc inflate*(buffer: var string): bool {.discardable.} =
   if not temp.isNil:
     swap(buffer, temp)
     result = true
-
-when isMainModule:
-  echo zlibVersion()
